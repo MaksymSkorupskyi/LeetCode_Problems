@@ -4,7 +4,21 @@ Your function should return length = 2, with the first two elements of nums bein
 It doesn't matter what you leave beyond the new length.
 """
 
-# v1: Runtime: 64 ms, beats 96.40 % of python3 submissions.
+# v1: Runtime: 56 ms, beats 100.00 % of python3 submissions!
+# https://leetcode.com/submissions/detail/146731879/
+
+class Solution:
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        nums[:] = list(set(nums))
+        nums.sort()
+        return len(nums)
+
+
+# v2: Runtime: 64 ms, beats 96.40 % of python3 submissions.
 
 class Solution:
     def removeDuplicates(self, nums):
@@ -15,7 +29,8 @@ class Solution:
         nums[:] = sorted(list(set(nums)))
         return len(nums)
 
-# v2: Runtime: 76 ms, beats 68.31 % of python3 submissions.
+
+# v3: Runtime: 76 ms, beats 68.31 % of python3 submissions.
 
 class Solution:
     def removeDuplicates(self, nums):

@@ -6,7 +6,6 @@ It doesn't matter what you leave beyond the new length.
 
 # v1: Runtime: 56 ms, beats 100.00 % of python3 submissions!
 # https://leetcode.com/submissions/detail/146731879/
-
 class Solution:
     def removeDuplicates(self, nums):
         """
@@ -19,7 +18,6 @@ class Solution:
 
 
 # v2: Runtime: 64 ms, beats 96.40 % of python3 submissions.
-
 class Solution:
     def removeDuplicates(self, nums):
         """
@@ -31,7 +29,6 @@ class Solution:
 
 
 # v3: Runtime: 76 ms, beats 68.31 % of python3 submissions.
-
 class Solution:
     def removeDuplicates(self, nums):
         """
@@ -42,6 +39,7 @@ class Solution:
             if nums[i] == nums[i - 1]:
                 nums.pop(i)
         return len(nums)
+
 
 def main():
     a = Solution()

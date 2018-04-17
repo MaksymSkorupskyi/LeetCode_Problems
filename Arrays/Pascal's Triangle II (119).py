@@ -9,7 +9,7 @@ Could you optimize your algorithm to use only O(k) extra space?
 
 class Solution:
     def factorial(self, n):
-        if n in [0, 1]:
+        if n < 2:
             return 1
         return n * Solution.factorial(self, n - 1)
 

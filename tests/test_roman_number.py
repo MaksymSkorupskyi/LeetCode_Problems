@@ -1,7 +1,7 @@
 import unittest
 
 from integer_to_roman import int_to_roman
-from roman_to_integer_13 import roman_to_int
+from roman_to_integer import roman_to_int
 
 
 class KnownValues(unittest.TestCase):

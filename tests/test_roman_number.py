@@ -1,6 +1,6 @@
 import unittest
 
-from integer_to_roman_12 import int_to_roman
+from integer_to_roman import int_to_roman
 from roman_to_integer_13 import roman_to_int
 
 

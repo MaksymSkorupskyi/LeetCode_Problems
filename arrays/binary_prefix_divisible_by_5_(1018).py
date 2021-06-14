@@ -1,4 +1,4 @@
-"""1018. Binary Prefix Divisible By 5
+"""1018. Binary Prefix Divisible By 5 [Easy]
 
 You are given a binary array nums (0-indexed).
 
@@ -61,6 +61,7 @@ class Solution:
             result.append(prefix % 5 == 0)
 
         return result
+
 
 # Runtime: 108 ms, faster than 96.73% of Python3 online submissions for Binary Prefix Divisible By 5.
 # Memory Usage: 15.2 MB, less than 52.76% of Python3 online submissions for Binary Prefix Divisible By 5.

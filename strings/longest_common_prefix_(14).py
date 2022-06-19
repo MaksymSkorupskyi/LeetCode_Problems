@@ -21,6 +21,7 @@ strs[i] consists of only lowercase English letters.
 """
 from typing import List
 
+
 # Runtime: 48 ms, faster than 58.40% of Python3 online submissions for Longest Common Prefix.
 # Memory Usage: 14 MB, less than 49.48% of Python3 online submissions for Longest Common Prefix.
 class Solution:

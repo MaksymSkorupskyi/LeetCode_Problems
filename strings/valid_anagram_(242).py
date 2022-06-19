@@ -68,3 +68,10 @@ class Solution:
             s_memo[s[i]] = s_memo.get(s[i], 0) + 1
             t_memo[t[i]] = t_memo.get(t[i], 0) + 1
         return s_memo == t_memo
+
+
+# Runtime: 94 ms, faster than 22.15% of Python3 online submissions for Valid Anagram.
+# Memory Usage: 15.3 MB, less than 11.52% of Python3 online submissions for Valid Anagram.
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return tuple(sorted(s)) == tuple(sorted(t))

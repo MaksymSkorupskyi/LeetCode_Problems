@@ -70,8 +70,8 @@ class Solution:
         return s_memo == t_memo
 
 
-# Runtime: 94 ms, faster than 22.15% of Python3 online submissions for Valid Anagram.
-# Memory Usage: 15.3 MB, less than 11.52% of Python3 online submissions for Valid Anagram.
+# Runtime: 57 ms, faster than 78.59% of Python3 online submissions for Valid Anagram.
+# Memory Usage: 15.2 MB, less than 11.52% of Python3 online submissions for Valid Anagram.
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        return tuple(sorted(s)) == tuple(sorted(t))
+        return sorted(s) == sorted(t)

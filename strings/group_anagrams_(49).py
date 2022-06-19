@@ -41,8 +41,8 @@ def groupAnagrams(strs: List[str]) -> List[List[str]]:
 
 
 # v2 - setdefault()
-# Runtime: 100 ms, faster than 95.12% of Python3 online submissions for Group Anagrams.
-# Memory Usage: 18.8 MB, less than 36.38% of Python3 online submissions for Group Anagrams.
+# Runtime: 98 ms, faster than 96.56% of Python3 online submissions for Group Anagrams.
+# Memory Usage: 18.4 MB, less than 44.90% of Python3 online submissions for Group Anagrams
 def groupAnagrams(strs: List[str]) -> List[List[str]]:
     anagrams: Dict[Tuple, List[str]] = {}
     for string in strs:

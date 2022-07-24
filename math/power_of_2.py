@@ -31,6 +31,14 @@ class Solution:
         return n == 1
 
 
+# Pyton "Lookup in Set" solution
+# Runtime: 33 ms, faster than 93.38% of Python3 online submissions for Power of Two.
+# Memory Usage: 13.8 MB, less than 52.94% of Python3 online submissions for Power of Two.
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        return n in {2 ** i for i in range(31)}
+
+
 def main():
     a = Solution()
     for i in range(-1, 21038):

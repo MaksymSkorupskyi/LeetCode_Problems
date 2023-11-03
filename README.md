@@ -1,4 +1,4 @@
 # LeetCode_Problems
-LeetCode Problems (35)
+LeetCode Problems
 
 [https://leetcode.com/MaksymSkorupskyi/](https://leetcode.com/MaksymSkorupskyi/)

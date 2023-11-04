@@ -62,10 +62,44 @@
 -- Machine 0's average time is ((1.520 - 0.712) + (4.120 - 3.140)) / 2 = 0.894
 -- Machine 1's average time is ((1.550 - 0.550) + (1.420 - 0.430)) / 2 = 0.995
 -- Machine 2's average time is ((4.512 - 4.100) + (5.000 - 2.500)) / 2 = 1.456
+
+-- Grouping twice using CTE
+WITH
+  cte_processing_time AS(
+    SELECT
+      machine_id,
+      process_id,
+      MAX(CASE WHEN activity_type = 'end' THEN timestamp END)
+      -
+      MAX(CASE WHEN activity_type = 'start' THEN timestamp END)
+      AS processing_time
+    FROM
+      Activity
+    GROUP BY
+      1,2
+  )
+
 SELECT
   machine_id,
+  ROUND(AVG(processing_time), 3)  AS processing_time
+FROM
+  cte_processing_time
+GROUP BY
+  1
+ORDER BY
+  1
+
+
+-- Approach from tutorial: Transform Values with CASE WHEN and then Calculate
+SELECT
+  machine_id,
+  ROUND(
+    SUM(CASE WHEN activity_type = 'start' THEN -timestamp ELSE timestamp END)
+    /
+    (SELECT COUNT(DISTINCT process_id)),
+    3
+  ) AS processing_time
 FROM
   Activity
 GROUP BY
-  machine_id
-
+  1

@@ -54,6 +54,7 @@
 -- | ----------- | ---------- | --------------------------- | -- |
 -- | 2           | 2019-08-02 | 2019-08-02                  | 1  |
 -- | 4           | 2019-08-09 | 2019-08-09                  | 1  |
+# 1
 WITH
   cte_first_orders AS (
     SELECT
@@ -82,6 +83,25 @@ WHERE
   order_date = customer_pref_delivery_date
 ;
 
+# 2
+WITH
+  cte_first_orders AS (
+    SELECT
+      customer_id,
+      order_date,
+      customer_pref_delivery_date,
+      ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date) AS rn
+    FROM
+      Delivery
+  )
+
+SELECT
+  ROUND(AVG(order_date = customer_pref_delivery_date) * 100, 2)  AS immediate_percentage
+FROM
+  cte_first_orders
+WHERE
+  rn = 1
+;
 
 -- himanshu__mehra__ solition
 SELECT
@@ -91,7 +111,8 @@ FROM
 WHERE
   (customer_id, order_date) IN (
     SELECT
-      customer_id, MIN(order_date)
+      customer_id,
+      MIN(order_date)
     FROM
       Delivery
     GROUP BY

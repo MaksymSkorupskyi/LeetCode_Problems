@@ -76,7 +76,7 @@ WITH
     FROM
       Activity
     GROUP BY
-      1,2
+      1, 2
   )
 
 SELECT

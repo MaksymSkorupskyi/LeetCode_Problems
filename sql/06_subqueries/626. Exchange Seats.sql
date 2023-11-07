@@ -47,6 +47,7 @@
 -- | 3  | Emerson | Green                 | Doris               |
 -- | 4  | Green   | Jeames                | Emerson             |
 -- | 5  | Jeames  | null                  | Green               |
+# v1 swap students
 SELECT
   id,
   IFNULL(
@@ -61,3 +62,21 @@ FROM
   Seat
 ORDER BY
   1
+;
+
+# v2 swap ids
+SELECT
+  IFNULL(
+    IF(
+      MOD(id, 2) = 0,
+      LAG(id) OVER(),  # even id
+      LEAD(id) OVER () # odd id
+    ),
+    id
+  )         AS id,
+  student
+FROM
+  Seat
+ORDER BY
+  1
+;

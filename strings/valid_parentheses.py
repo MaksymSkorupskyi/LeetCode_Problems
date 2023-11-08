@@ -16,9 +16,11 @@ class Solution:
         :type s: str
         :rtype: bool
         """
-        brackets = {'{': 1, '}': -1,
-                    '[': 2, ']': -2,
-                    '(': 4, ')': -4}
+        brackets = {
+            '{': 1, '}': -1,
+            '[': 2, ']': -2,
+            '(': 4, ')': -4
+        }
         stack = []
         for i in expression:
             if stack and stack[-1] + brackets[i] == 0:
@@ -28,6 +30,7 @@ class Solution:
             else:
                 return False
         return not stack
+
 
 """
 # One of my first solutions - Time Limit Exceeded :)))
@@ -61,6 +64,7 @@ def isValid(s):
         return False
 """
 
+
 def main():
     a = Solution()
     print(a.isValid(''))
@@ -69,6 +73,7 @@ def main():
     print(a.isValid('['))
     print(a.isValid(']'))
     print(a.isValid('([)]'))
+
 
 import time
 

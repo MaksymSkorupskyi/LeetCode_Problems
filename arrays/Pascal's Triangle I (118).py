@@ -11,6 +11,7 @@ For example, given numRows = 5, Return:
 
 # Binomial Coefficient 40 ms runtime beats 91.08% of Python 3 submissions.
 
+
 class Solution:
     def factorial(self, n):
         if n < 2:
@@ -49,4 +50,4 @@ import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

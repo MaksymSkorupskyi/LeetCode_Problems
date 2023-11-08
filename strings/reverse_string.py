@@ -38,9 +38,9 @@ def main():
         print(solution.reverseString(s))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import time
 
     timer = time.perf_counter()
     main()
-    print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+    print(round((time.perf_counter() - timer) * 1000, 2), "ms")

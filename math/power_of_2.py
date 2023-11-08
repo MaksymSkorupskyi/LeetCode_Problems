@@ -3,6 +3,7 @@
 Given an integer, write a function to determine if it is a power of two.
 """
 
+
 # recursion: Runtime 56ms beats 97.17% of python3 submissions.
 class Solution:
     def isPowerOfTwo(self, n):
@@ -36,7 +37,7 @@ class Solution:
 # Memory Usage: 13.8 MB, less than 52.94% of Python3 online submissions for Power of Two.
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
-        return n in {2 ** i for i in range(31)}
+        return n in {2**i for i in range(31)}
 
 
 def main():
@@ -49,4 +50,4 @@ import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

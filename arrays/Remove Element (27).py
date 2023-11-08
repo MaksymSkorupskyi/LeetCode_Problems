@@ -9,6 +9,7 @@ Your function should return length = 2, with the first two elements of nums bein
 
 # v1: Runtime: 40 ms, beats 95.18 % of python3 submissions.
 
+
 class Solution:
     def removeElement(self, nums, val):
         """
@@ -23,6 +24,7 @@ class Solution:
 
 # v2: Runtime: 44 ms, beats 86.14 % of python3 submissions.
 
+
 class Solution:
     def removeElement(self, nums, val):
         """
@@ -36,9 +38,9 @@ class Solution:
 
 def main():
     a = Solution()
-    print(a.removeElement(nums = [3,2,2,3], val = 3))
-    print(a.removeElement([1,1,1], 1))
-    print(a.removeElement([1,1,2], 1))
+    print(a.removeElement(nums=[3, 2, 2, 3], val=3))
+    print(a.removeElement([1, 1, 1], 1))
+    print(a.removeElement([1, 1, 2], 1))
     print(a.removeElement([-1, 0, 0, 0, 0, 3, 3], 0))
 
 
@@ -46,4 +48,4 @@ import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

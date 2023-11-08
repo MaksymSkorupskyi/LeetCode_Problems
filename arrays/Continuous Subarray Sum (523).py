@@ -15,6 +15,7 @@ The length of the array won't exceed 10,000.
 You may assume the sum of all the numbers is in the range of a signed 32-bit integer.
 """
 
+
 class Solution:
     def checkSubarraySum(self, nums, k):
         """
@@ -44,10 +45,10 @@ def main():
     print(a.checkSubarraySum([1], 1))
     print(a.checkSubarraySum([0, 0], -1))
     print(a.checkSubarraySum([0], 0))
-    print(a.checkSubarraySum([0, 0], k = 0))
-    print(a.checkSubarraySum([23, 2, 6, 4, 7], k = 0))
-    print(a.checkSubarraySum([23, 2, 4, 6, 7], k = 6))
-    print(a.checkSubarraySum([23, 2, 6, 4, 7], k = 6))
+    print(a.checkSubarraySum([0, 0], k=0))
+    print(a.checkSubarraySum([23, 2, 6, 4, 7], k=0))
+    print(a.checkSubarraySum([23, 2, 4, 6, 7], k=6))
+    print(a.checkSubarraySum([23, 2, 6, 4, 7], k=6))
 
     # print(a.checkSubarraySum([1], 1))
     # print(a.checkSubarraySum([3, 4, 7, 2, -3, 1, 4, 2], 7))
@@ -70,4 +71,4 @@ import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

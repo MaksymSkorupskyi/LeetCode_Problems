@@ -7,6 +7,7 @@ Could you optimize your algorithm to use only O(k) extra space?
 """
 # Binomial Coefficient 40 ms runtime beats 91.77 % of Python 3 submissions.
 
+
 class Solution:
     def factorial(self, n):
         if n < 2:
@@ -25,6 +26,7 @@ class Solution:
 
 
 # v2: faster lambda solution
+
 
 class Solution:
     def getRow(self, rowIndex):
@@ -50,4 +52,4 @@ import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

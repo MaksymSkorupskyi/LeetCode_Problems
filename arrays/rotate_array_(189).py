@@ -65,7 +65,7 @@ def main():
     solution.rotate(nums=nums, k=2)
     assert nums == [3, 99, -1, -100]
 
-    nums = [1,2]
+    nums = [1, 2]
     solution.rotate(nums=nums, k=3)
     assert nums == [2, 1]
 
@@ -74,4 +74,4 @@ import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

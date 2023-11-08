@@ -3,6 +3,7 @@
 Given an integer (signed 32 bits), write a function to check whether it is a power of 4.
 """
 
+
 # recursion: Runtime 56 ms beats 95.94 % of python3 submissions.
 class Solution:
     def isPowerOfFour(self, n):
@@ -50,4 +51,4 @@ import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

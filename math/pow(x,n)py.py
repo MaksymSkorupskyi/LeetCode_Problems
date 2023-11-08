@@ -29,4 +29,4 @@ class Solution:
         :type n: int
         :rtype: float
         """
-        return x ** n
+        return x**n

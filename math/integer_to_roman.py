@@ -35,22 +35,26 @@ class Solution:
         :rtype: str
         """
         if not isinstance(num, int):
-            raise TypeError(f'Invalid input: `{num}` must be an integer, got {type(num)} instead!')
+            raise TypeError(
+                f"Invalid input: `{num}` must be an integer, got {type(num)} instead!"
+            )
 
-        roman_numeral_map = (('M', 1000),
-                             ('CM', 900),
-                             ('D', 500),
-                             ('CD', 400),
-                             ('C', 100),
-                             ('XC', 90),
-                             ('L', 50),
-                             ('XL', 40),
-                             ('X', 10),
-                             ('IX', 9),
-                             ('V', 5),
-                             ('IV', 4),
-                             ('I', 1))
-        roman = ''
+        roman_numeral_map = (
+            ("M", 1000),
+            ("CM", 900),
+            ("D", 500),
+            ("CD", 400),
+            ("C", 100),
+            ("XC", 90),
+            ("L", 50),
+            ("XL", 40),
+            ("X", 10),
+            ("IX", 9),
+            ("V", 5),
+            ("IV", 4),
+            ("I", 1),
+        )
+        roman = ""
         for numeral, integer in roman_numeral_map:
             while num >= integer:
                 roman += numeral
@@ -67,22 +71,26 @@ def int_to_roman(num: int) -> str:
     :rtype: str
     """
     if not isinstance(num, int):
-        raise TypeError(f'Invalid input: `{num}` must be an integer, got {type(num)} instead!')
+        raise TypeError(
+            f"Invalid input: `{num}` must be an integer, got {type(num)} instead!"
+        )
 
-    roman_numeral_map = (('M', 1000),
-                         ('CM', 900),
-                         ('D', 500),
-                         ('CD', 400),
-                         ('C', 100),
-                         ('XC', 90),
-                         ('L', 50),
-                         ('XL', 40),
-                         ('X', 10),
-                         ('IX', 9),
-                         ('V', 5),
-                         ('IV', 4),
-                         ('I', 1))
-    roman = ''
+    roman_numeral_map = (
+        ("M", 1000),
+        ("CM", 900),
+        ("D", 500),
+        ("CD", 400),
+        ("C", 100),
+        ("XC", 90),
+        ("L", 50),
+        ("XL", 40),
+        ("X", 10),
+        ("IX", 9),
+        ("V", 5),
+        ("IV", 4),
+        ("I", 1),
+    )
+    roman = ""
 
     for numeral, integer in roman_numeral_map:
         roman += numeral * (num // integer)
@@ -100,20 +108,22 @@ class Solution:
         :type num: int
         :rtype: str
         """
-        roman_dict = {1000: 'M',
-                      900: 'CM',
-                      500: 'D',
-                      400: 'CD',
-                      100: 'C',
-                      90: 'XC',
-                      50: 'L',
-                      40: 'XL',
-                      10: 'X',
-                      9: 'IX',
-                      5: 'V',
-                      4: 'IV',
-                      1: 'I'}
-        roman = ''
+        roman_dict = {
+            1000: "M",
+            900: "CM",
+            500: "D",
+            400: "CD",
+            100: "C",
+            90: "XC",
+            50: "L",
+            40: "XL",
+            10: "X",
+            9: "IX",
+            5: "V",
+            4: "IV",
+            1: "I",
+        }
+        roman = ""
 
         for i in [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]:
             roman += roman_dict[i] * (num // i)
@@ -129,9 +139,9 @@ def main():
         print(i, a.intToRoman(i))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import time
 
     timer = time.perf_counter()
     main()
-    print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+    print(round((time.perf_counter() - timer) * 1000, 2), "ms")

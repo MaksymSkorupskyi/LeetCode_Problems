@@ -3,6 +3,7 @@
 Given an integer, write a function to determine if it is a power of three.
 """
 
+
 # recursion: Runtime 472 ms beats 80.91 % of python3 submissions.
 class Solution:
     def isPowerOfThree(self, n):
@@ -56,4 +57,4 @@ import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

@@ -6,7 +6,7 @@ from functools import lru_cache
 class Solution:
     @lru_cache(maxsize=512)
     def fib(self, N: int) -> int:
-        """ Fibonacci number (recursion with memoization) """
+        """Fibonacci number (recursion with memoization)"""
         if N < 2:
             return N
         return self.fib(N - 1) + self.fib(N - 2)
@@ -16,7 +16,7 @@ class Solution:
 # Memory Usage: 13.4 MB, less than 5.34% of Python3 online submissions for Fibonacci Number.
 class Solution:
     def fib(self, N: int) -> int:
-        """ Fibonacci number (dynamic solution) """
+        """Fibonacci number (dynamic solution)"""
         a, b = 0, 1
         for _ in range(N):
             a, b = b, a + b

@@ -64,12 +64,15 @@ class Solution:
         print(elements)
 
         for i in range(len(nums) - 1):
-            print(i, elements[i], elements[i-1])
+            print(i, elements[i], elements[i - 1])
             print(abs(elements[i][0] - elements[i - 1][0]))
             print(abs(elements[i][1] - elements[i - 1][1]))
 
             # for j in range(k):
-            if abs(elements[i][1] - elements[i - 1][1]) <= t and abs(elements[i][0] - elements[i - 1][0]) <= k:
+            if (
+                abs(elements[i][1] - elements[i - 1][1]) <= t
+                and abs(elements[i][0] - elements[i - 1][0]) <= k
+            ):
                 return True
 
         return False

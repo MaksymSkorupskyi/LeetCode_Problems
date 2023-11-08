@@ -24,6 +24,7 @@ Each element nums[i] will be an integer in the range [-1000, 1000].
 
 # Runtime: 68 ms, beats 98.40% of Python 3 submissions.
 
+
 class Solution:
     def pivotIndex(self, nums):
         """
@@ -55,4 +56,4 @@ import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

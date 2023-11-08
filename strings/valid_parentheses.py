@@ -67,16 +67,16 @@ def isValid(s):
 
 def main():
     a = Solution()
-    print(a.isValid(''))
-    print(a.isValid('[]'))
-    print(a.isValid('([])'))
-    print(a.isValid('['))
-    print(a.isValid(']'))
-    print(a.isValid('([)]'))
+    print(a.isValid(""))
+    print(a.isValid("[]"))
+    print(a.isValid("([])"))
+    print(a.isValid("["))
+    print(a.isValid("]"))
+    print(a.isValid("([)]"))
 
 
 import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

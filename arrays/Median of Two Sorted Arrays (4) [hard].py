@@ -5,6 +5,7 @@ There are two sorted arrays nums1 and nums2 of size m and n respectively.
 Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
 """
 
+
 # with .median() static method:
 # Runtime: 96 ms, beats 98.42% of python3 submissions.
 class Solution:
@@ -45,9 +46,11 @@ class Solution:
 def main():
     a = Solution()
     print(a.findMedianSortedArrays([1, 3], [2]))
-    print(a.findMedianSortedArrays(nums1 = [1, 2], nums2 = [3, 4]))
+    print(a.findMedianSortedArrays(nums1=[1, 2], nums2=[3, 4]))
+
 
 import time
+
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

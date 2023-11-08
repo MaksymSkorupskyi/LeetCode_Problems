@@ -24,7 +24,12 @@ class Solution:
         :type right: int
         :rtype: List[int]
         """
-        return [number for number in range(left, right+1) if '0' not in str(number) and all(number % int(char) == 0 for char in str(number))]
+        return [
+            number
+            for number in range(left, right + 1)
+            if "0" not in str(number)
+            and all(number % int(char) == 0 for char in str(number))
+        ]
         # return [x for x in range(left, right + 1) if all(y and not x % y for y in map(int, str(x)))]
 
         # selfdivnums = []
@@ -38,8 +43,9 @@ def main():
     a = Solution()
     print(a.selfDividingNumbers(1, 22))
 
+
 import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

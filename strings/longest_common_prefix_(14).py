@@ -26,7 +26,7 @@ from typing import List
 # Memory Usage: 14 MB, less than 49.48% of Python3 online submissions for Longest Common Prefix.
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        prefix = ''
+        prefix = ""
         for s in zip(*strs):
             if len(set(s)) != 1:
                 return prefix

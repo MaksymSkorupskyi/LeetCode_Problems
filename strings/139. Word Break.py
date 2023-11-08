@@ -53,15 +53,17 @@ class Solution:
 
         return False
 
+
 def is_word_in_strings(word: str, strings: str | list[str]) -> (bool, list[str]):
     if isinstance(strings, list):
         for s in strings:
-           return any(is_word_in_strings(word, s))
+            return any(is_word_in_strings(word, s))
 
     if word in strings:
         return True, strings.split(word)
 
     return False, strings.split(word)
+
 
 class Solution:
     @staticmethod
@@ -78,7 +80,6 @@ class Solution:
             temp = remainder
 
             print(word, temp, word_map)
-
 
         return True
 

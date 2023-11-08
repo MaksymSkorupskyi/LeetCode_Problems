@@ -41,7 +41,7 @@ from typing import List
 # Memory Usage: 15.2 MB, less than 52.76% of Python3 online submissions for Binary Prefix Divisible By 5.
 class Solution:
     def prefixesDivBy5(self, nums: List[int]) -> List[bool]:
-        s = ''
+        s = ""
         r = []
         for n in nums:
             s += str(n)
@@ -95,4 +95,4 @@ import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

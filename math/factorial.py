@@ -38,16 +38,15 @@ def factorial_iterative(n: int) -> int:
     return n
 
 
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     x = 1000
 
     timer = time.perf_counter()
-    print(f'factorial of {x}:')
+    print(f"factorial of {x}:")
     print(f'function: {factorial.__name__}(), "{factorial.__doc__}"')
     print([factorial(f) for f in range(x)][-1])
     print(f'function: {factorial_recursive.__name__}(), "{factorial_recursive.__doc__}"')
     print([factorial_recursive(f) for f in range(x)][-1])
     assert factorial(x) == factorial_recursive(x) == factorial_iterative(x)
-    print(f'{(time.perf_counter() - timer) * 1000 :.2f} ms')
-    print('-' * 80)
+    print(f"{(time.perf_counter() - timer) * 1000 :.2f} ms")
+    print("-" * 80)

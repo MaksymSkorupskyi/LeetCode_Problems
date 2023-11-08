@@ -34,10 +34,7 @@ class Solution:
         """
         s = s.lower()
         s = [i for i in s if i.isalnum()]
-        return not any(
-            x != y
-            for x, y in zip(s, reversed(s))
-        )
+        return not any(x != y for x, y in zip(s, reversed(s)))
 
 
 # Runtime: 48 ms, faster than 94.41% of Python3 online submissions for Valid Palindrome.
@@ -50,22 +47,19 @@ class Solution:
         """
         s = s.lower()
         s = [i for i in s if i.isalnum()]
-        return all(
-            x == y
-            for x, y in zip(s, reversed(s))
-        )
+        return all(x == y for x, y in zip(s, reversed(s)))
 
 
 def main():
     a = Solution()
-    print(a.isPalindrome(''))
+    print(a.isPalindrome(""))
     print(a.isPalindrome("A man, a plan, a canal: Panama"))
     print(a.isPalindrome("race a car"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import time
 
     timer = time.perf_counter()
     main()
-    print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+    print(round((time.perf_counter() - timer) * 1000, 2), "ms")

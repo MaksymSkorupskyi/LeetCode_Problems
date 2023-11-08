@@ -59,44 +59,44 @@ def roman_to_int(s: str) -> int:
     """
     result = 0
 
-    if 'IV' in s:
+    if "IV" in s:
         result += 4
-        s = s.replace('IV', '')
+        s = s.replace("IV", "")
 
-    if 'IX' in s:
+    if "IX" in s:
         result += 9
-        s = s.replace('IX', '')
+        s = s.replace("IX", "")
 
-    if 'XL' in s:
+    if "XL" in s:
         result += 40
-        s = s.replace('XL', '')
+        s = s.replace("XL", "")
 
-    if 'XC' in s:
+    if "XC" in s:
         result += 90
-        s = s.replace('XC', '')
+        s = s.replace("XC", "")
 
-    if 'CD' in s:
+    if "CD" in s:
         result += 400
-        s = s.replace('CD', '')
+        s = s.replace("CD", "")
 
-    if 'CM' in s:
+    if "CM" in s:
         result += 900
-        s = s.replace('CM', '')
+        s = s.replace("CM", "")
 
     for i in s:
-        if i == 'M':
+        if i == "M":
             result += 1000
-        elif i == 'D':
+        elif i == "D":
             result += 500
-        elif i == 'C':
+        elif i == "C":
             result += 100
-        elif i == 'L':
+        elif i == "L":
             result += 50
-        elif i == 'X':
+        elif i == "X":
             result += 10
-        elif i == 'V':
+        elif i == "V":
             result += 5
-        elif i == 'I':
+        elif i == "I":
             result += 1
     return result
 
@@ -119,55 +119,55 @@ class Solution:
         """
         result = 0
 
-        if 'IV' in s:
+        if "IV" in s:
             result += 4
-            s = s.replace('IV', '')
+            s = s.replace("IV", "")
 
-        if 'IX' in s:
+        if "IX" in s:
             result += 9
-            s = s.replace('IX', '')
+            s = s.replace("IX", "")
 
-        if 'XL' in s:
+        if "XL" in s:
             result += 40
-            s = s.replace('XL', '')
+            s = s.replace("XL", "")
 
-        if 'XC' in s:
+        if "XC" in s:
             result += 90
-            s = s.replace('XC', '')
+            s = s.replace("XC", "")
 
-        if 'CD' in s:
+        if "CD" in s:
             result += 400
-            s = s.replace('CD', '')
+            s = s.replace("CD", "")
 
-        if 'CM' in s:
+        if "CM" in s:
             result += 900
-            s = s.replace('CM', '')
+            s = s.replace("CM", "")
 
         for i in s:
-            if i == 'M':
+            if i == "M":
                 result += 1000
-            elif i == 'D':
+            elif i == "D":
                 result += 500
-            elif i == 'C':
+            elif i == "C":
                 result += 100
-            elif i == 'L':
+            elif i == "L":
                 result += 50
-            elif i == 'X':
+            elif i == "X":
                 result += 10
-            elif i == 'V':
+            elif i == "V":
                 result += 5
-            elif i == 'I':
+            elif i == "I":
                 result += 1
         return result
 
 
 def main():
     a = Solution()
-    print(a.romanToInt('DCXXI'))
+    print(a.romanToInt("DCXXI"))
 
 
 import time
 
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

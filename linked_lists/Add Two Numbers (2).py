@@ -13,6 +13,7 @@ Output: 7 -> 0 -> 8
 Explanation: 342 + 465 = 807.
 """
 
+
 class ListNode:
     def __init__(self, x):
         self.val = x
@@ -33,7 +34,7 @@ class Solution:
         if not l2:
             return l1
         # initializing x1, x2
-        x1 = x2 = ''
+        x1 = x2 = ""
         # extracting number x1 from linked list l1
         while l1:
             x1 += str(l1.val)

@@ -36,10 +36,12 @@ def main():
     a = Solution()
 
     nums1 = [1, 2, 3, 0, 0, 0]
-    print(a.merge(nums1, m = 3, nums2 = [2,5,6], n = 3))
+    print(a.merge(nums1, m=3, nums2=[2, 5, 6], n=3))
     print(nums1)
 
+
 import time
+
 timer = time.perf_counter()
 main()
-print(round((time.perf_counter() - timer) * 1000, 2), 'ms')
+print(round((time.perf_counter() - timer) * 1000, 2), "ms")

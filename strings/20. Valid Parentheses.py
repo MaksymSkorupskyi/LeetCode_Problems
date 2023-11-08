@@ -66,5 +66,5 @@ test_cases = (
     ("]][[", False),
 )
 for brackets, answer in test_cases:
-    print(Solution.isValid(brackets))
+    print(brackets, Solution.isValid(brackets))
     assert Solution.isValid(brackets) == answer

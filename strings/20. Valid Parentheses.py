@@ -40,6 +40,7 @@ class Solution:
             elif s in brackets_map.keys():
                 if not stack:
                     return False
+
                 if stack[-1] == brackets_map[s]:
                     stack.pop(-1)
                 else:

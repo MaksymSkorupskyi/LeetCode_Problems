@@ -26,7 +26,7 @@ from typing import List
 class Solution:
     @staticmethod
     def topKFrequent(nums: List[int], k: int) -> List[int]:
-        element_freq = {}  # Dict[element , freq]
+        element_freq = {}  # Dict[element, freq]
         for n in nums:
             if n not in element_freq:
                 element_freq[n] = nums.count(n)
@@ -37,18 +37,14 @@ class Solution:
             else:
                 freq[value].append(key)
         result = []
-        for key in sorted(freq.keys(), reverse=True)[:k]:
+        for key in sorted(freq.keys(), reverse=True):
             result.extend(freq[key])
 
-        print(element_freq)
-        print(freq)
-        print(sorted(freq.keys(), reverse=True)[:k])
-
-        return result
+        return result[:k]
 
 
 test_cases = (
-    # ([4, 1, -1, 2, -1, 2, 3], 2, [-1, 2]),
+    ([4, 1, -1, 2, -1, 2, 3], 2, [-1, 2]),
     ([1, 1, 1, 2, 2, 3], 2, [1, 2]),
     ([1], 1, [1]),
     ([5, -4, 5, 5, -4, 3], 2, [-4, 5]),

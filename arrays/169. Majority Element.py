@@ -24,12 +24,36 @@ from typing import List
 
 class Solution:
     @staticmethod
-    def majorityElement(nums: List[int]) -> int:
+    def majorityElement_v1(nums: List[int]) -> int:
+        """With count()"""
         majority = len(nums) / 2
         nums_map = {}
         for n in nums:
             if n not in nums_map:
                 nums_map[n] = nums.count(n)
+            if nums_map[n] > majority:
+                return n
+
+    @staticmethod
+    def majorityElement_v2(nums: List[int]) -> int:
+        """Without count()"""
+        majority = len(nums) / 2
+        nums_map = {}
+        for n in nums:
+            if n not in nums_map:
+                nums_map[n] = 1
+            else:
+                nums_map[n] += 1
+            if nums_map[n] > majority:
+                return n
+
+    @staticmethod
+    def majorityElement(nums: List[int]) -> int:
+        """Without count()"""
+        majority = len(nums) / 2
+        nums_map = {}
+        for n in nums:
+            nums_map[n] = nums_map.get(n, 0) + 1
             if nums_map[n] > majority:
                 return n
 

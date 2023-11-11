@@ -63,5 +63,7 @@ test_cases = (
     ([2, 2, 1, 1, 1, 2, 2], 2),
 )
 for nums, answer in test_cases:
-    print(nums, Solution.majorityElement(nums))
-    assert Solution.majorityElement(nums) == answer
+    result = Solution.majorityElement(nums)
+    print(result)
+    assert result == answer
+

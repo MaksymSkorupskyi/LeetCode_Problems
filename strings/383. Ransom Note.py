@@ -1,6 +1,6 @@
 """383. Ransom Note
 Easy
-Given two strings ransomNote and magazine, 
+Given two strings ransomNote and magazine,
 return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
 Each letter in magazine can only be used once in ransomNote.
 
@@ -14,7 +14,7 @@ Output: false
 
 Example 3:
 Input: ransomNote = "aa", magazine = "aab"
-Output: true 
+Output: true
 
 Constraints:
 1 <= ransomNote.length, magazine.length <= 105
@@ -27,14 +27,11 @@ class Solution:
     def canConstruct(ransom_note: str, magazine: str) -> bool:
         ransom_counter = {}
         for s in ransom_note:
-            ransom_counter[s] = ransom_counter.setdefault(s, 0) + 1
+            ransom_counter[s] = ransom_counter.get(s, 0) + 1
 
         magazine_counter = {}
         for s in magazine:
-            magazine_counter[s] = magazine_counter.setdefault(s, 0) + 1
-
-        print(ransom_counter)
-        print(magazine_counter)
+            magazine_counter[s] = magazine_counter.get(s, 0) + 1
 
         for k, v in ransom_counter.items():
             if k not in magazine_counter or magazine_counter[k] < v:

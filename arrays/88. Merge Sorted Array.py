@@ -44,19 +44,58 @@ from typing import List
 
 class Solution:
     @staticmethod
-    def _merge(nums1: List[int], m: int, nums2: List[int], n: int) -> List[int]:
-        """Do not return anything, modify nums1 in-place instead."""
+    def merge_v1(nums1: List[int], m: int, nums2: List[int], n: int) -> List[int]:
+        """Do not return anything, modify nums1 in-place instead.
+        v1 O(nlog n)cheating ))
+        """
         nums1[:] = sorted(nums1[:m] + nums2)
         return nums1
 
     @staticmethod
+    def merge_v2(nums1: List[int], m: int, nums2: List[int], n: int) -> List[int]:
+        """Do not return anything, modify nums1 in-place instead.
+        v2: O(m + n)
+        """
+        i1 = m - 1
+        i2 = n - 1
+        for i in range(len(nums1) - 1, -1, -1):
+            if i1 >= 0 and i2 >= 0:
+                if nums1[i1] > nums2[i2]:
+                    nums1[i] = nums1[i1]
+                    i1 -= 1
+                else:
+                    nums1[i] = nums2[i2]
+                    i2 -= 1
+
+            elif i1 < 0:
+                nums1[i] = nums2[i2]
+                i2 -= 1
+
+            elif i2 < 0:
+                nums1[i] = nums1[i1]
+                i1 -= 1
+
+        return nums1
+
+    @staticmethod
     def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> List[int]:
-        """Do not return anything, modify nums1 in-place instead."""
-        nums1[:] = sorted(nums1[:m] + nums2)
+        """Do not return anything, modify nums1 in-place instead.
+        v3: O(m + n) optimized
+        """
+        while n > 0:
+            if m > 0 and nums1[m - 1] > nums2[n - 1]:
+                nums1[m + n - 1] = nums1[m - 1]
+                m -= 1
+            else:
+                nums1[m + n - 1] = nums2[n - 1]
+                n -= 1
+
         return nums1
 
 
 test_cases = (
+    ([2, 0], 1, [1], 1, [1, 2]),
+    ([-1, 0, 0, 3, 3, 3, 0, 0, 0], 6, [1, 2, 2], 3, [-1, 0, 0, 1, 2, 2, 3, 3, 3]),
     ([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3, [1, 2, 2, 3, 5, 6]),
     ([1], 1, [], 0, [1]),
     ([0], 0, [1], 1, [1]),

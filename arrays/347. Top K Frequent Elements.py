@@ -26,7 +26,7 @@ from typing import List
 
 class Solution:
     @staticmethod
-    def top_k_f_requent_v1(nums: List[int], k: int) -> List[int]:
+    def top_k_frequent_v1(nums: List[int], k: int) -> List[int]:
         """v1: using count() function"""
         element_freq = {}  # Dict[element, freq]
         for n in nums:
@@ -45,7 +45,7 @@ class Solution:
         return result[:k]
 
     @staticmethod
-    def top_k_f_requent_v2(nums: List[int], k: int) -> List[int]:
+    def top_k_frequent_v2(nums: List[int], k: int) -> List[int]:
         """v2: no count() function"""
         element_freq = {}  # Dict[element, freq]
         for n in nums:
@@ -60,7 +60,7 @@ class Solution:
         return result[:k]
 
     @staticmethod
-    def topKFrequent(nums: List[int], k: int) -> List[int]:
+    def top_k_frequent_v3(nums: List[int], k: int) -> List[int]:
         """v3: bucket sort"""
         element_freq = {}  # Dict[element, freq]
         for n in nums:
@@ -72,6 +72,15 @@ class Solution:
         flat_list = [n for bucket in buckets for n in bucket]
 
         return flat_list[-k:]
+
+    @staticmethod
+    def topKFrequent(nums: List[int], k: int) -> List[int]:
+        """v4: sort frequency map by frequency"""
+        element_freq = {}  # Dict[element, freq]
+        for n in nums:
+            element_freq[n] = element_freq.get(n, 0) + 1
+
+        return sorted(element_freq, key=element_freq.get)[-k:]
 
 
 test_cases = (

@@ -26,7 +26,8 @@ from typing import List
 
 class Solution:
     @staticmethod
-    def topKFrequent(nums: List[int], k: int) -> List[int]:
+    def top_k_f_requent_v1(nums: List[int], k: int) -> List[int]:
+        """v1: using count() function"""
         element_freq = {}  # Dict[element, freq]
         for n in nums:
             if n not in element_freq:
@@ -42,6 +43,35 @@ class Solution:
             result.extend(freq[key])
 
         return result[:k]
+
+    @staticmethod
+    def top_k_f_requent_v2(nums: List[int], k: int) -> List[int]:
+        """v2: no count() function"""
+        element_freq = {}  # Dict[element, freq]
+        for n in nums:
+            element_freq[n] = element_freq.get(n, 0) + 1
+        freq = {}
+        for key, value in element_freq.items():
+            freq[value] = freq.get(value, []) + [key]
+        result = []
+        for key in sorted(freq.keys(), reverse=True):
+            result.extend(freq[key])
+
+        return result[:k]
+
+    @staticmethod
+    def topKFrequent(nums: List[int], k: int) -> List[int]:
+        """v3: bucket sort"""
+        element_freq = {}  # Dict[element, freq]
+        for n in nums:
+            element_freq[n] = element_freq.get(n, 0) + 1
+
+        buckets = [[] for _ in range(max(element_freq.values()) + 1)]
+        for n, freq in element_freq.items():
+            buckets[freq].append(n)
+        flat_list = [n for bucket in buckets for n in bucket]
+
+        return flat_list[-k:]
 
 
 test_cases = (

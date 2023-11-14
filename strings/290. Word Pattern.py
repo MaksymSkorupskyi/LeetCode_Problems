@@ -36,6 +36,16 @@ class Solution:
         return len(set(pattern)) == len(set(s)) == len(set(zip_longest(pattern, s)))
 
     @staticmethod
+    def word_pattern_v2(pattern: str, s: str) -> bool:
+        """Using zip()"""
+        s = s.split()
+        # Initial validation of pattern and s lengths
+        if len(pattern) != len(s):
+            return False
+
+        return len(set(pattern)) == len(set(s)) == len(set(zip(pattern, s)))
+
+    @staticmethod
     def wordPattern(pattern: str, s: str) -> bool:
         words = s.split()
         # Initial validation of pattern and s lengths

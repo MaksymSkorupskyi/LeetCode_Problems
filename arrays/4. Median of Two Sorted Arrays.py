@@ -42,5 +42,6 @@ test_cases = (
     ([1, 1], [1, 2], 1),
 )
 for nums1, nums2, answer in test_cases:
-    print(nums1, nums2, Solution.findMedianSortedArrays(nums1, nums2))
-    assert Solution.findMedianSortedArrays(nums1, nums2) == answer
+    result = Solution.removeDuplicates(nums1, nums2)
+    print(result)
+    assert result(nums1, nums2) == answer

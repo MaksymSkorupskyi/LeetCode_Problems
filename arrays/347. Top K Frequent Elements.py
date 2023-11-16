@@ -22,12 +22,17 @@ It is guaranteed that the answer is unique.
 Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
 """
 from typing import List
+from collections import Counter
 
 
 class Solution:
     @staticmethod
     def top_k_frequent_v1(nums: List[int], k: int) -> List[int]:
         """v1: using count() function"""
+        # O(1) time
+        if k >= len(nums):
+            return nums
+
         element_freq = {}  # Dict[element, freq]
         for n in nums:
             if n not in element_freq:
@@ -47,6 +52,10 @@ class Solution:
     @staticmethod
     def top_k_frequent_v2(nums: List[int], k: int) -> List[int]:
         """v2: no count() function"""
+        # O(1) time
+        if k >= len(nums):
+            return nums
+
         element_freq = {}  # Dict[element, freq]
         for n in nums:
             element_freq[n] = element_freq.get(n, 0) + 1
@@ -62,6 +71,10 @@ class Solution:
     @staticmethod
     def top_k_frequent_v3(nums: List[int], k: int) -> List[int]:
         """v3: bucket sort"""
+        # O(1) time
+        if k >= len(nums):
+            return nums
+
         element_freq = {}  # Dict[element, freq]
         for n in nums:
             element_freq[n] = element_freq.get(n, 0) + 1
@@ -74,13 +87,52 @@ class Solution:
         return flat_list[-k:]
 
     @staticmethod
-    def topKFrequent(nums: List[int], k: int) -> List[int]:
+    def top_k_frequent_v4(nums: List[int], k: int) -> List[int]:
         """v4: sort frequency map by frequency"""
+        # O(1) time
+        if k >= len(nums):
+            return nums
+
         element_freq = {}  # Dict[element, freq]
         for n in nums:
             element_freq[n] = element_freq.get(n, 0) + 1
 
         return sorted(element_freq, key=element_freq.get)[-k:]
+
+    @staticmethod
+    def top_k_frequent_v5(nums: List[int], k: int) -> List[int]:
+        """v5: Counter + most_common(k) O(Nlogk)"""
+        # O(1) time
+        if k >= len(nums):
+            return nums
+
+        # 1. build hash map : character and how often it appears
+        # O(N) time
+        counter = Counter(nums)
+
+        # 2-3. build heap of top k frequent elements and
+        # convert it into an output array
+        # O(N log k) time
+        return [n for n, _ in counter.most_common(k)]
+
+    @staticmethod
+    def topKFrequent(nums: List[int], k: int) -> List[int]:
+        """v5: Counter + heapq.nlargest(k) O(Nlogk)"""
+        # O(1) time
+        if k >= len(nums):
+            return nums
+
+        # 1. build hash map : character and how often it appears
+        # O(N) time
+        counter = Counter(nums)
+
+        # Lazy import to speedup Python startup time
+        from heapq import nlargest
+        # 2-3. build heap of top k frequent elements and
+        # convert it into an output array
+        # O(N log k) time
+        return nlargest(k, counter.keys(), key=counter.get)
+
 
 
 test_cases = (

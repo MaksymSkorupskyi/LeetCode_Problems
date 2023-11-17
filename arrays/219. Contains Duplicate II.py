@@ -20,9 +20,9 @@ Input: nums = [1,2,3,1,2,3], k = 2
 Output: false
 
 Constraints:
-1 <= nums.length <= 105
--109 <= nums[i] <= 109
-0 <= k <= 105
+1 <= nums.length <= 10^5
+-10^9 <= nums[i] <= 10^9
+0 <= k <= 10^5
 """
 from typing import List
 
@@ -47,7 +47,7 @@ test_cases = (
     ([1, 2, 3, 1, 2, 3], 2, False),
 )
 
-for case, k, answer in test_cases:
+for case, k, expected in test_cases:
     result = Solution.containsNearbyDuplicate(case, k)
     print(result)
-    assert result is answer
+    assert result is expected

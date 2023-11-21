@@ -57,15 +57,25 @@ class Solution:
         3. Return the maximum profit achieved at the end of the loop,
         which is the maximum value of rest and sold.
         """
-        sold = 0
-        hold = float('-inf')
-        rest = 0
+        sold = 0  # Maximum profit if we sell the stock today
+        hold = float("-inf")  # Maximum profit if we hold the stock today
+        rest = 0  # Maximum profit if we rest today (i.e., do not buy or sell)
 
+        # Iterate through the stock prices
         for price in prices:
+            # Maximum profit if we hold the stock today
+            # This could be either holding the stock from yesterday or buying it today
             hold = max(hold, rest - price)
+
+            # Maximum profit if we rest today
+            # This is either the current profit or the maximum profit from yesterday
             rest = max(rest, sold)
+
+            # Maximum profit if we sell the stock today
+            # This is the profit from holding the stock yesterday and selling it today
             sold = hold + price
 
+        # Return the maximum profit achieved, which is the maximum of either resting or selling
         return max(rest, sold)
 
 

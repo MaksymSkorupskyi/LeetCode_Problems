@@ -99,23 +99,19 @@ class Solution:
 
         # Initialize buying and selling prices tables
         # High buying price and 0 selling price initially
-        buying_prices = [10 ** 5 for _ in range(k)]
-        selling_prices = [0 for _ in range(k)]
+        buying_prices = [10 ** 5] * k
+        selling_prices = [0] * k
 
         # Iterate over all stock prices
         for price in prices:
             # Iterate over each transaction
-            for i in range(k):
+            buying_prices[0] = min(buying_prices[0], price)
+            selling_prices[0] = max(selling_prices[0], price - buying_prices[0])
+            for i in range(1, k):
                 # Update min buying price
-                buying_prices[i] = min(
-                    buying_prices[i],
-                    price if i == 0 else price - selling_prices[i - 1],
-                )
+                buying_prices[i] = min(buying_prices[i], price - selling_prices[i - 1])
                 # Update max selling price
-                selling_prices[i] = max(
-                    selling_prices[i],
-                    price - buying_prices[i],
-                )
+                selling_prices[i] = max(selling_prices[i], price - buying_prices[i])
 
         # Maximum profit will be the last sell price
         return selling_prices[-1]

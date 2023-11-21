@@ -37,7 +37,7 @@ class Solution:
         return max_profit
 
     @staticmethod
-    def maxProfit(prices: list[int]) -> int:
+    def max_profit_v2(prices: list[int]) -> int:
         max_profit = 0
         left = 0  # buy
         right = 1  # sell
@@ -49,6 +49,20 @@ class Solution:
             right += 1
 
         return max_profit
+
+    @staticmethod
+    def maxProfit(prices: list[int]) -> int:
+        buying_price = 10 ** 5
+        selling_price = 0
+
+        for price in prices:
+            # Update the minimum buying price for the transaction
+            buying_price = min(buying_price, price)
+
+            # Update the maximum selling price for the transaction
+            selling_price = max(selling_price, price - buying_price)
+
+        return selling_price
 
 
 test_cases = (

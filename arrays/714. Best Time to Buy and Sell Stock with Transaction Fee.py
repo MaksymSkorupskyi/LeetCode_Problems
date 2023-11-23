@@ -35,7 +35,7 @@ Constraints:
 
 class Solution:
     @staticmethod
-    def maxProfit(prices: list[int], fee: int) -> int:
+    def max_profit_time_limit_exceeded(prices: list[int], fee: int) -> int:
         # Initialize buying and selling prices tables
         # High buying price and 0 selling price initially
         buying_prices = [10 ** 5] * len(prices)
@@ -55,11 +55,37 @@ class Solution:
         # Maximum profit will be the last sell price
         return selling_prices[-1]
 
+    @staticmethod
+    def max_profit_v1(prices: list[int], fee: int) -> int:
+        """pay the fee when buying the stock"""
+        buy = 0  # Max profit from buying today
+        sold = float("-inf")  # Max profit from selling today
+
+        # Iterate through the stock prices
+        for price in prices:
+            sold = max(sold, buy - price - fee)
+            buy = max(buy, sold + price)
+
+        return buy
+
+    @staticmethod
+    def maxProfit(prices: list[int], fee: int) -> int:
+        """pay the fee when buying the stock"""
+        buy = 0  # Max profit from buying today
+        sold = float("-inf")  # Max profit from selling today
+
+        # Iterate through the stock prices
+        for price in prices:
+            sold = max(sold, buy - price)
+            buy = max(buy, sold + price - fee)
+
+        return buy
+
 
 # Test cases
 test_cases = (
-    ([1, 3, 2, 8, 4, 9], 2, 8),
     ([1, 3, 7, 5, 10, 3], 3, 6),
+    ([1, 3, 2, 8, 4, 9], 2, 8),
 )
 
 # Validate against test cases

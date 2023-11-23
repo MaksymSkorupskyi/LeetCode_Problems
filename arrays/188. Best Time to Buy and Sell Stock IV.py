@@ -48,7 +48,7 @@ class Solution:
         If so, it means there are no prices or only one price,
         so the maximum profit that can be achieved is 0.
 
-        3. The next condition checks if k is greater than the number of days in the prices array divided by 2.
+        3. The next condition checks if k is greater or equal the number of days in the prices array divided by 2.
         If so, it means we can perform unlimited transactions.
         In this case, the code calculates the profit by iterating over the prices array
         and adding the difference between consecutive prices whenever the price increases.
@@ -87,8 +87,8 @@ class Solution:
         if len(prices) <= 1:
             return 0
 
-        # Special case - unlimited transactions If k is greater than a half number of days
-        if k > len(prices) / 2:
+        # Special case - unlimited transactions If k is greater than or equal to a half number of days
+        if k >= len(prices) // 2:
             # Calculate profit by adding deltas of increasing prices
             profit = 0
             for i in range(1, len(prices)):

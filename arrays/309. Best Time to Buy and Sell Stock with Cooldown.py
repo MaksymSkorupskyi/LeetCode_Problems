@@ -31,7 +31,7 @@ class Solution:
     """
 
     @staticmethod
-    def maxProfit(prices: list[int]) -> int:
+    def max_profit_v1(prices: list[int]) -> int:
         """The code uses dynamic programming to keep track of the maximum profit
         that can be achieved at each day, considering the three possible actions:
             1) selling,
@@ -61,7 +61,7 @@ class Solution:
         sold = 0
 
         # Max profit from holding stock from previous day
-        hold = float("-inf")
+        hold = -prices[0]   # hold = float("-inf")
 
         # Max profit from not buying/selling today
         rest = 0
@@ -83,11 +83,25 @@ class Solution:
         # Final max profit is max of sold or rest states
         return max(rest, sold)
 
+    @staticmethod
+    def maxProfit(prices: list[int]) -> int:
+        cooldown = 0
+        buy = 0  # Max profit from buying today
+        sold = float("-inf")  # Max profit from selling today
+
+        # Iterate through the stock prices
+        for price in prices:
+            sold = max(sold, cooldown - price)
+            cooldown = buy
+            buy = max(buy, sold + price)
+
+        return buy
+
 
 # Test cases
 test_cases = (
-    ([2, 1], 0),
     ([1, 2, 3, 0, 2], 3),
+    ([2, 1], 0),
     ([1], 0),
 )
 # Validate against test cases
